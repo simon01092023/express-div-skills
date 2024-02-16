@@ -13,9 +13,12 @@
     |
     <a href="/skills">All Skills</a>
     <p>
-    <form action="/skills" method="POST"></form>
-    <input type="text" name="">
-    <button type="submit">Save Skill</button>
+    <form action="/skills" method="POST">
+        <input type="text" name="skill">
+        <input type="checkbox" name="status" value="done">
+        <label for="status">Done</label><br><br>
+        <button type="submit">Save Skill</button>
+    </form>
     </p>
 </body>
 
