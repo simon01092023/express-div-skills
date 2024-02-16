@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// var methodOverride = require('method-override')
+var methodOverride = require('method-override')
 
 var indexRouter = require('./routes/index');
 var skillsRouter = require('./routes/skills');
@@ -29,7 +29,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // takes care of form data see req.body
 // turn to extended to true before uncomment true before uncommenting below
-// app.use(methodOverride('_method')); enable method override
+app.use(methodOverride('_method')); 
+//enable method override
 // app.use(express.static('public')); server static assets from the public folder
 app.use(cookieParser());
 //for cookies 

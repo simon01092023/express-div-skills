@@ -9,9 +9,9 @@ const skills = [
 // easy to add a new Skill sam shape as array
 class Skill {
     constructor(id, skill, done) {
-        this.id = id; 
+        this.id = id;
         //id:id id 
-        this.skill = skill; 
+        this.skill = skill;
         //skill:skill skill
         this.done = done;
         //done:done done
@@ -23,16 +23,31 @@ class Skill {
 module.exports = {
     getAll,
     getOne,
-    Skill
+    Skill,
+    create,
+    deleteOneSkill
+
 };
 
-function getAll () {
+function getAll() {
     return skills;
 };
 
-
-function getOne (id) {
+function getOne(id) {
     id = parseInt(id);
     return skills.find(skill => skill.id === id);
 };
 
+function create(skill) {
+    //keep same length as orginal skills array
+    skill.id = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+    skill.done = false;
+    skills.push(skill);
+}
+
+function deleteOneSkill(id) {
+    id = parseInt(id);
+    //find and remove
+    const idex = skills.findIndex(skill => skill.id === id);
+    skills.splice(idex, 1);
+}
