@@ -4,6 +4,7 @@ const Skill = require('../models/skill')
 module.exports = {
     index,
     show,
+    new: newSkill,
     create,
     deleteSkill
 };
@@ -22,17 +23,28 @@ function show(req, res) {
     });
 }
 
+function newSkill(req, res) {
+    res.render('skills/new', {});
+    //     // //keep same length as orginal skills array
+    //     // const uniqueID = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+    //     // //skill details from form
+    //     // const { skill, done } = req.body;
+    //     // //create new skill with unique ID 
+    //     // const newSkill = new Skill(uniqueID, skill, done);
+    //     // //add the new skill
+    //     // skills.push(newSkill);
+    //     // res.redirect('/skills');
+}
+
 function create(req, res) {
-    //keep same length as orginal skills array
-    const uniqueID = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
-    //skill details from form
-    const { skill, done } = req.body;
-    //create new skill with unique ID 
-    const newSkill = new Skill(uniqueID, skill, done);
-    //add the new skill
-    skills.push(newSkill);
+    console.log(req.body);
+    //Models 
+    // Skill.create(req.body);
+    //redirect
     res.redirect('/skills');
 }
+
+
 
 function deleteSkill(req, res) {
     //skill ID from URL parameters
