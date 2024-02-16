@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// var methodOverride = require('method-override')
 
 var indexRouter = require('./routes/index');
 var skillsRouter = require('./routes/skills');
@@ -18,12 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // turn to extended to true before uncomment true before uncommenting below
 // app.use(methodOverride('_method')); enable method override
-// app.set('view engine', 'ejs'); set ejs as the view engine
 // app.use(express.static('public')); server static assets from the public folder
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// start with path 
+// start with path / Routes 
 app.use('/', indexRouter);
 app.use('/skills', skillsRouter);
 

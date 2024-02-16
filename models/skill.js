@@ -6,6 +6,7 @@ const skills = [
     { id: 500000, skill: 'Learn Express', done: false },
 ];
 
+// easy to add a new Skill sam shape as array
 class Skill {
     constructor(id, skill, done) {
         this.id = id; 
